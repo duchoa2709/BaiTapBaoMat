@@ -1,15 +1,6 @@
 <?php
 require_once 'models/UserModel.php';
 
-function  custom_htmlspecialchars($string) {
-   
-    $string = str_replace("&", "&amp", $string);
-    $string = str_replace("<", "&l", $string);
-    $string = str_replace(">", "&g", $string);
-    $string = str_replace('"', "&qu", $string);
-    $string = str_replace("'", "&#", $string);
-    return $string;
-}
 $userModel = new UserModel();
 
 $id = '';
@@ -23,23 +14,8 @@ if(!empty($_GET['keyword'])) {
     $keyword = $_GET['keyword'];
     var_dump($keyword);
     $users = $userModel->findUser($keyword);
-if(empty($users)){
-
-    $_SESSION['message'] =  "Không Tìm Thấy User : " . custom_htmlspecialchars($keyword);
-
-}
  
 }
-else{
-    $keyword = null;
-    $users = $userModel->findUser($keyword);
-if(empty($users)){
-    $_SESSION['message'] =  "Không Tìm Thấy User : " . custom_htmlspecialchars($keyword);
-
-}
-
-}
-
 
 ?>
 <div class="container">
