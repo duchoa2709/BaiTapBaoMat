@@ -25,7 +25,7 @@ if(!empty($_GET['keyword'])) {
     $users = $userModel->findUser($keyword);
 if(empty($users)){
 
-    $_SESSION['message'] =  "Không Tìm Thấy User : " . custom_htmlspecialchars($keyword);
+    $_SESSION['message'] =  "Không Tìm Thấy User : " .$keyword;
 
 }
  
@@ -34,7 +34,7 @@ else{
     $keyword = null;
     $users = $userModel->findUser($keyword);
 if(empty($users)){
-    $_SESSION['message'] =  "Không Tìm Thấy User : " . custom_htmlspecialchars($keyword);
+    $_SESSION['message'] =  "Không Tìm Thấy User : " .$keyword;
 
 }
 
